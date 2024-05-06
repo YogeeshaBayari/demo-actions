@@ -1,0 +1,26 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch name if different
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Compile hello.c
+      run: gcc -o hello hello.c
+
+    - name: Compile c_odd_even.c
+      run: gcc -o c_odd_even c_odd_even.c
+
+    - name: Run hello.c
+      run: ./hello
+
+    - name: Run c_odd_even.c
+      run: ./c_odd_even
